@@ -82,6 +82,75 @@
     },[router]);
     ```
 
+- `next/image` Image
+
+  - 서버에서 자동으로 이미지 용량 최적화(webp type)
+  - `layout shift` 현상이 일어나지 않음
+  - `quality` 속성을 사용하여 얼마나 최적화 할지도 설정할 수 있음
+  - `loading="lazy"` 속성이 자동으로 들어가 있음
+  - `placeholder="blur` 속성을 사용하면 사진이 다운로드 되는 동안 blur 이미지가 자동으로 적용됨
+  - 외부링크(string 경로) 이미지의 높이와 너비를 미리 알 방법이 없어 빌드타임에 미리 최적화할 수 없음 => 외부링크(string 경로)를 소스에 두었을 때는 반드시 그 크기를 명시해 주어야 함
+  - 외부링크(string 경로)의 이미지의 사이즈(width와 height)를 모를때 => `fill` 속성 사용 => 이 경우 이미지의 사이즈는 부모에 의해 결정 => 부모의 position을 relative/absolute/fixed 등으로 설정한후 부모의 width, height를 설정 => Image태그에 objectFit 속성을 추가하여 크기가 이미지에 딱 맞게 설정
+  - 외부링크를 소스로 넣을 때 외부링크를 사용할 수 없다는 메시지가 보임 => `next.config.js`의 `images.domains`에 외부링크 추가할 것 => pathname까지 좀 더 정확하게 명시하고 싶다면 `remotePatterns`를 사용할 것
+
+  ```typescript
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    reactStrictMode: true,
+    images: {
+      domains: ['inflearn-nextjs.vercel.app'],
+    },
+  };
+
+  module.exports = nextConfig;
+  ```
+
+  ```typescript
+  import Image from 'next/image';
+  import example from '/public/example.jpg';
+
+  ...
+  // src : static
+  <figure>
+    <Image
+      src={example}
+      alt="v13 image"
+      width={500}
+      height={100}
+      quality={100}
+      placeholder="blur"
+    //
+     />
+    <figcaption>v13 image</figcaption>
+  </figure>;
+
+  // src : 외부링크
+  <figure>
+    <Image
+      src="https://inflearn-nextjs.vercel.app/example.jpg"
+      alt="v13 image"
+      width={500}
+      height={100}
+      quality={100}
+      placeholder="blur"
+    //
+     />
+    <figcaption>v13 image</figcaption>
+  </figure>;
+
+  // src : 외부링크(string 경로)의 이미지의 사이즈(width와 height)를 모를때 => fill속성 사용
+  <figure style={{ position: 'relative', width: '500px', height: '100px' }}>
+    <Image
+      src="https://inflearn-nextjs.vercel.app/example.jpg"
+      alt="v13 fill"
+      fill
+      style={{ objectFit: 'cover' }}
+    />
+     <figcaption>v13 image</figcaption>
+  </figure>
+  ...
+  ```
+
 ## ⚙️ getStaticProps
 
 - ISR : `revalidate: 5`라는 것은 5초마다(서버가 request를 받은지 5초가 지난 후, 다시 request가 왔을 때마다) getStaticProps함수를 다시 실행해서 만약 데이터가 바뀌었으면 새로운 값으로 다시 pre-rendering하라는 뜻, data가 변하지 않으면 pre-rendering을 다시 수행하지 않음
@@ -171,7 +240,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 
   return {
     props: { data },
-  };
+  };`
 };
 ```
 
