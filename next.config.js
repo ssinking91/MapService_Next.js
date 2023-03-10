@@ -3,7 +3,8 @@
 // const path = require('path');
 
 const nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     domains: ['inflearn-nextjs.vercel.app', 'search.pstatic.net'],
   },

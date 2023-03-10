@@ -9,11 +9,13 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+  // height : 100vh 일 경우 모바일 등의 기기에서 예상치 못한 동작을 할 수 있음
   height: 100%;
 }
 
 @layer base {
   #__next {
+    // displqy : contents => box요소를 생성하지 않고 접근성 tree에서도 제외
     width: 100%;
     height: 100%;
   }

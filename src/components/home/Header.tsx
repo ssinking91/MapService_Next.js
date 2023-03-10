@@ -12,11 +12,15 @@ const HomeHeader = () => {
   const { resetMapOptions, getMapOptions } = useMap();
 
   const router = useRouter();
+
+  // 공유하기 버튼을 눌렀을 때 url 주소를 변경하고 그 url을 복사하는 함수를 구현
   const replaceAndCopyUrl = useCallback(() => {
     const mapOptions = getMapOptions();
     const query = `/?zoom=${mapOptions.zoom}&lat=${mapOptions.center[0]}&lng=${mapOptions.center[1]}`;
 
+    // url의 query를 해당 query로 대체함
     router.replace(query);
+    // clipboard에 저장
     copy(location.origin + query);
   }, [router, getMapOptions]);
 
