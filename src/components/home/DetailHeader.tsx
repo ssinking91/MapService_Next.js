@@ -29,6 +29,7 @@ const DetailHeader = ({ currentStore, expanded, onClickArrow }: Props) => {
           <button
             className={headerStyles.box}
             onClick={() => {
+              // location.origin = 프로토콜(http://) + 도메인(localhost) + 포트(:3000)
               copy(location.origin + '/' + currentStore.name);
             }}
             aria-label="매장 페이지 주소 클립보드 복사"
