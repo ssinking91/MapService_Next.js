@@ -27,8 +27,9 @@ const DetailContent = ({ currentStore, expanded }: Props) => {
               src={image}
               alt=""
               fill
-              style={{ objectFit: 'cover' }}
+              // fill 속성일 시 size 속성 추가하면 성능을 높일 수 있음
               sizes="120px"
+              style={{ objectFit: 'cover' }}
               // 정적 import라면 placeholder="blur"만 추가
               placeholder="blur"
               // 동적 import(외부 경로에서 이미지를 받아와야되는 상황)라면 blurDataURL = 'data:image/gif;base64, + base64로 인코딩된 이미지 픽셀'까지 추가

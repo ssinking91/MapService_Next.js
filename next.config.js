@@ -10,13 +10,10 @@ const nextConfig = {
   },
   i18n: {
     /** https://nextjs.org/docs/advanced-features/i18n-routing#getting-started */
+    // 사이트 언어의 후보를 배열로 적어줌
     locales: ['ko'],
     defaultLocale: 'ko',
   },
-  // sassOptions: {
-  //   includePaths: [path.join(__dirname, 'styles')],
-  //   prependData: `@import "src/styles/header.module.scss"; @import "styles/globals.scss"; @import "src/styles/detail.module.scss @import "src/styles/feedback.module.scss @import "src/styles/map.module.scss`,
-  // },
 };
 
 module.exports = nextConfig;

@@ -18,6 +18,8 @@ const DetailHeader = ({ currentStore, expanded, onClickArrow }: Props) => {
         className={`${styles.arrowButton} ${expanded ? styles.expanded : ''}`}
         onClick={onClickArrow}
         disabled={!currentStore}
+        // accessible한 name을 주는 방법 : aria-* 속성을 사용(웹 접근성)
+        // aria-label : 버튼이나 링크에 단순하게 이름을 추가할 때
         aria-label={expanded ? '매장 정보 접기' : '매장 정보 펼치기'}
       >
         <IoIosArrowUp size={20} color="#666666" />
@@ -32,6 +34,8 @@ const DetailHeader = ({ currentStore, expanded, onClickArrow }: Props) => {
               // location.origin = 프로토콜(http://) + 도메인(localhost) + 포트(:3000)
               copy(location.origin + '/' + currentStore.name);
             }}
+            // accessible한 name을 주는 방법 : aria-* 속성을 사용(웹 접근성)
+            // aria-label : 버튼이나 링크에 단순하게 이름을 추가할 때
             aria-label="매장 페이지 주소 클립보드 복사"
           >
             <AiOutlineShareAlt size={20} color="#444444" />

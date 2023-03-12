@@ -32,6 +32,8 @@ const HomeHeader = () => {
           onClick={replaceAndCopyUrl}
           className={styles.box}
           style={{ marginRight: 8 }}
+          // accessible한 name을 주는 방법 : aria-* 속성을 사용(웹 접근성)
+          // aria-label : 버튼이나 링크에 단순하게 이름을 추가할 때
           aria-label="현재 위치 클립보드 복사"
           key="button"
         >
@@ -40,6 +42,8 @@ const HomeHeader = () => {
         <Link
           href="/feedback"
           className={styles.box}
+          // accessible한 name을 주는 방법 : aria-* 속성을 사용(웹 접근성)
+          // aria-label : 버튼이나 링크에 단순하게 이름을 추가할 때
           aria-label="피드백 페이지로 이동"
           key="link"
         >
