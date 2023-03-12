@@ -1,7 +1,7 @@
 export default {
   // 페이지 전역적으로 공통의 문자열이 들어가야 될 때
   titleTemplate: '%s - Next.js 시작하기',
-  // og:image, og:type, og:sitename 등 openGraph와 관련된 meta tag
+  // og:type, og:sitename, og:image 등 openGraph와 관련된 meta tag
   openGraph: {
     // og:type
     type: 'website',

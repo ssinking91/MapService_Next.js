@@ -11,6 +11,7 @@ type Props = {
 
 const DetailContent = ({ currentStore, expanded }: Props) => {
   if (!currentStore) return null;
+
   return (
     <div
       className={`${styles.detailContent} ${expanded ? styles.expanded : ''}`}

@@ -16,6 +16,7 @@ const Markers = () => {
   const { setCurrentStore, clearCurrentStore } = useCurrentStore();
 
   if (!map || !stores) return null;
+
   return (
     <>
       {/* 기존의 마커 */}
@@ -38,7 +39,9 @@ const Markers = () => {
       {/* 네이버 Marker는 아래에서부터 순서대로 쌓이기 때문에 나중에 생성된 Marker가 화면의 가장 위에 그려지게 됨  */}
       {currentStore && (
         <Marker
+          // Marker를 그릴 대상 map
           map={map}
+          // Marker를 그릴 위치(위경도)
           coordinates={currentStore.coordinates}
           icon={generateStoreMarkerIcon(currentStore.season, true)}
           onClick={clearCurrentStore}
@@ -50,8 +53,8 @@ const Markers = () => {
 };
 export default Markers;
 
-const MARKER_HEIGHT = 64;
 const MARKER_WIDTH = 54;
+const MARKER_HEIGHT = 64;
 const NUMBER_OF_MARKER = 13;
 const SCALE = 2 / 3;
 

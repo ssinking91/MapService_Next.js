@@ -31,6 +31,7 @@ const DetailHeader = ({ currentStore, expanded, onClickArrow }: Props) => {
           <button
             className={headerStyles.box}
             onClick={() => {
+              // clipboard에 저장
               // location.origin = 프로토콜(http://) + 도메인(localhost) + 포트(:3000)
               copy(location.origin + '/' + currentStore.name);
             }}
