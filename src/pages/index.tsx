@@ -23,11 +23,11 @@ const Home: NextPage<Props> = ({ stores }) => {
       <NextSeo
         title="매장 지도"
         description="Next.js 시작하기 강의를 위한 매장 지도 서비스입니다."
-        // 선호 URL(canonical link) : 각 페이지 별로 그 URL을 가장 잘 표현하는 대표 URL을 지정하면 됨
-        canonical="https://inflearn-nextjs.vercel.app"
         openGraph={{
           url: 'https://inflearn-nextjs.vercel.app',
         }}
+        // 선호 URL(canonical link) : 각 페이지 별로 그 URL을 가장 잘 표현하는 대표 URL을 지정하면 됨
+        canonical="https://inflearn-nextjs.vercel.app"
       />
       <Header />
       <main
