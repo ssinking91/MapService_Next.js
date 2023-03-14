@@ -20,6 +20,7 @@ export const FeedbackPage: NextPage<Props> = (
       <NextSeo
         title="피드백"
         description="매장 지도 서비스에 대한 피드백을 받습니다."
+        // 선호 URL(canonical link) : 각 페이지 별로 그 URL을 가장 잘 표현하는 대표 URL을 지정하면 됨
         canonical="https://inflearn-nextjs.vercel.app/feedback"
         openGraph={{
           url: 'https://inflearn-nextjs.vercel.app/feedback',
