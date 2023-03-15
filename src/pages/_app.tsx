@@ -10,6 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
       {/** SEO */}
       <DefaultSeo {...SEO} />
       {/** GA https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/pages/_app.js */}
+      {/* Google Analytics script 추가하기 */}
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=G-PMBX725CN0`}
